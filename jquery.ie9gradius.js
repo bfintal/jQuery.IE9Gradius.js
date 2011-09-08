@@ -40,7 +40,7 @@ jQuery(document).ready(function($){
             $(this).mouseenter(function() { $('#'+id).addClass('gradiusover'); }).mouseleave(function() { $('#'+id).removeClass('gradiusover'); });
             
             // we need this so that the contents show on top
-            $(this).find('> *').css('position', 'relative');
+            $(this).find('> *:not(ul)').css('position', 'relative');
             
             // the magic is all here
             $(this).prepend('\
