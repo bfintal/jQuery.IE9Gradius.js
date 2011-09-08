@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery.IE9gradius.js Demo</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js?ver=3.2.1"></script>
+        <!-- All other additional script tags here. Include IE9Gradius last. -->
+            <script src="../jquery.ie9gradius.js"></script>
+        <!--[if IE 9]>
+        <![endif]-->
+        
+        <style>
+            #my_rounded_gradient {
+              padding: 30px;
+              background-color: #444444;
+              background-image: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#444444)); 
+              background-image: -webkit-linear-gradient(top, #999999, #444444); 
+              background-image:    -moz-linear-gradient(top, #999999, #444444); 
+              background-image:     -ms-linear-gradient(top, #999999, #444444); 
+              background-image:      -o-linear-gradient(top, #999999, #444444); 
+              background-image:         linear-gradient(top, #999999, #444444);
+                          filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#999999', EndColorStr='#444444'); /* IE6–IE9 */
+            
+              -webkit-border-radius: 15px; 
+                 -moz-border-radius: 15px; 
+                      border-radius: 15px; 
+              -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+            } 
+            
+            #my_rounded_gradient_with_hover {
+              width: 100px;
+              margin: 30px;
+              padding: 10px;
+              background-color: #123456;
+              background-image: -webkit-gradient(linear, left top, left bottom, from(#123456), to(#abcdef)); /* Saf4+, Chrome */
+              background-image: -webkit-linear-gradient(top, #123456, #abcdef); /* Chrome 10+, Saf5.1+, iOS 5+ */
+              background-image:    -moz-linear-gradient(top, #123456, #abcdef); /* FF3.6 */
+              background-image:     -ms-linear-gradient(top, #123456, #abcdef); /* IE10 */
+              background-image:      -o-linear-gradient(top, #123456, #abcdef); /* Opera 11.10+ */
+              background-image:         linear-gradient(top, #123456, #abcdef);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#123456', EndColorStr='#abcdef'); /* IE6–IE9 */
+            
+              -webkit-border-radius: 15px; 
+                 -moz-border-radius: 15px; 
+                      border-radius: 15px; 
+              -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+            } 
+            
+            #my_rounded_gradient_with_hover:hover {
+              background-color: #abcdef;
+              background-image: -webkit-gradient(linear, left top, left bottom, from(#abcdef), to(#123456)); /* Saf4+, Chrome */
+              background-image: -webkit-linear-gradient(top, #abcdef, #123456); /* Chrome 10+, Saf5.1+, iOS 5+ */
+              background-image:    -moz-linear-gradient(top, #abcdef, #123456); /* FF3.6 */
+              background-image:     -ms-linear-gradient(top, #abcdef, #123456); /* IE10 */
+              background-image:      -o-linear-gradient(top, #abcdef, #123456); /* Opera 11.10+ */
+              background-image:         linear-gradient(top, #abcdef, #123456);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#abcdef', EndColorStr='#123456'); /* IE6–IE9 */
+            } 
+            
+            #my_rounded_gradient_with_hover .gradiusover {
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#abcdef', EndColorStr='#123456') !important; /* IE6–IE9 */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="my_rounded_gradient">
+            <p>Some contents</p>
+        </div>
+        <div id="my_rounded_gradient_with_hover">
+            <p>Some contents with hover</p>
+        </div>
+    </body>
+</html>

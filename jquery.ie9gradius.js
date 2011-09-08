@@ -3,19 +3,15 @@
 // https://github.com/bfintal/jQuery.IE9Gradius.js
 
 jQuery(document).ready(function($){
-    $('a, div, span, p, li, button').each(function() { 
+    $('a, div, span, p, li, button').each(function() {
         // check each css property, we need a border radius and filter
         if ((parseInt($(this).css('borderTopLeftRadius')) > 0 ||
             parseInt($(this).css('borderTopRightRadius')) > 0 ||
             parseInt($(this).css('borderBottomLeftRadius')) > 0 ||
             parseInt($(this).css('borderBottomRightRadius')) > 0) &&
-            (parseInt($(this).css('borderLeftWidth')) > 0 ||
-            parseInt($(this).css('borderTopWidth')) > 0 ||
-            parseInt($(this).css('borderRightWidth')) > 0 ||
-            parseInt($(this).css('borderBottomWidth')) > 0) &&
             $(this).css('filter') != '' &&
             $(this).css('filter').match(/DXImageTransform\.Microsoft\.gradient/i) != null) {
-            
+                
             // carry over the border radius
             var s = 'border-top-left-radius: ' + parseInt($(this).css('borderTopLeftRadius')) + 'px;';
             s += 'border-top-right-radius: ' + parseInt($(this).css('borderTopRightRadius')) + 'px;';
@@ -37,19 +33,21 @@ jQuery(document).ready(function($){
             var id = 'ie9gradius_'+parseInt(Math.random() * 100000);
             
             // we need to remove the current filter because this is spilling outside the border radius
-            $(this).css('filter', '');
+            // relative position is needed for proper positioning of the gradient
+            $(this).css('filter', '').css('position', 'relative');
             
             // add support for adding hover styling
             $(this).mouseenter(function() { $('#'+id).addClass('gradiusover'); }).mouseleave(function() { $('#'+id).removeClass('gradiusover'); });
+            
+            // we need this so that the contents show on top
+            $(this).find('> *').css('position', 'relative');
             
             // the magic is all here
             $(this).prepend('\
             <div style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> \
                 <div style="'+s+' height: 100%; overflow: hidden;"> \
                     <div id="'+id+'" style="'+g+' height: 100%; width: 100%;"> \
-                    </div> \ 
-                </div> \
-            </div>');
+                    </div></div></div>');
         }
     });
 });
