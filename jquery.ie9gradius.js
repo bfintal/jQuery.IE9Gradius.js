@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
             
             // we need to remove the current filter because this is spilling outside the border radius
             // relative position is needed for proper positioning of the gradient
-            $(this).css('filter', '').css('position', 'relative');
+            $(this).css('filter', '').css('position', 'relative').css('z-index', '0')
             
             // add support for adding hover styling
             $(this).mouseenter(function() { $('#'+id).addClass('gradiusover'); }).mouseleave(function() { $('#'+id).removeClass('gradiusover'); });
@@ -44,9 +44,9 @@ jQuery(document).ready(function($){
             
             // the magic is all here
             $(this).prepend('\
-            <div style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> \
+            <div style="position: absolute; width: 100%; height: 100%; left: 0; top: 0; z-index:-1"> \
                 <div style="'+s+' height: 100%; overflow: hidden;"> \
-                    <div id="'+id+'" style="'+g+' height: 100%; width: 100%;"> \
+                    <div id="'+id+'" style="'+g+' height: 100%; width: 100%; z-index:-1"> \
                     </div></div></div>');
         }
     });
