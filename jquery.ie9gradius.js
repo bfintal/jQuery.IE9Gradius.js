@@ -1,3 +1,10 @@
+// jquery.ie9gradius.js
+// copyright benjamin intal
+// https://github.com/bfintal/jQuery.IE9Gradius.js
+//
+// Converted to a jQuery plugin by Adam Merrifield
+// http://adam.merrifield.ca
+
 (function($){
 	$.fn.ie9gradius = function(){
 		var that = $(this);
